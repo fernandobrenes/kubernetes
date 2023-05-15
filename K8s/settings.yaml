@@ -1,0 +1,28 @@
+# Cluster Name in VB
+cluster_name : Kubernetes Cluster
+
+network:
+  # Worker IPs are simply incremented from the control IP.
+  control_ip: 10.0.0.10
+  dns_servers:
+    - 8.8.8.8
+    - 1.1.1.1
+  pod_cidr: 172.16.1.0/16
+  service_cidr: 172.17.1.0/18
+
+nodes:
+  control:
+    cpu: 2
+    memory: 4096
+  workers:
+    count: 2
+    cpu: 1
+    memory: 2048
+
+software:
+  box: bento/ubuntu-22.04
+  # To skip the dashboard installation, set its version to an empty value or comment it out:
+  dashboard: 2.7.0
+  kubernetes: 1.26.2-00
+  metallb: 0.13.9
+  nginx-ingress: 1.7.1
